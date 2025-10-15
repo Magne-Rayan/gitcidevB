@@ -29,3 +29,11 @@ function toggleTask(id) {
   return true;
 }
 
+function addTask(name) {
+  if (typeof name !== 'string') throw new Error('name must be a string');
+  const trimmed = name.trim();
+  if (trimmed.length === 0) throw new Error('name cannot be empty');
+  const task = { id: String(nextId++), name: trimmed, done: false };
+  tasks.push(task);
+  return task;
+}
