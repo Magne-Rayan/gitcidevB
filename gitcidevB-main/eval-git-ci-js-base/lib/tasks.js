@@ -16,6 +16,16 @@ function reset() {
 
 module.exports = { getTasks, reset };
 
+
 function countDone() {
   return tasks.filter(t => t.done).length;
 }
+
+function toggleTask(id) {
+  const task = tasks.find(t => t.id === id);
+  if (!task) return false; // Cas d'erreur : id inexistant
+
+  task.done = !task.done;
+  return true;
+}
+
