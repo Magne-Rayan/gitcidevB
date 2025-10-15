@@ -15,3 +15,7 @@ function reset() {
 }
 
 module.exports = { getTasks, reset };
+
+function countDone() {
+  return tasks.filter(t => t.done).length;
+}
